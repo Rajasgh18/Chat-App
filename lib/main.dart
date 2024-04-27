@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100),
+          preferredSize: Size.fromHeight(96),
           child: HomeAppbar(),
         ),
         body: Home(),
