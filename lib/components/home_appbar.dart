@@ -30,7 +30,7 @@ class HomeAppbar extends StatelessWidget {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                     SizedBox(height: 2),
@@ -39,7 +39,7 @@ class HomeAppbar extends StatelessWidget {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 24,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                   ],
