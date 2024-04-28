@@ -4,7 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ContactAvatar extends StatelessWidget {
   final String url;
   final String status;
-  const ContactAvatar({super.key, this.url = "", required this.status});
+  final String type;
+  const ContactAvatar(
+      {super.key, this.url = "", required this.status, this.type = "contact"});
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,7 +28,11 @@ class ContactAvatar extends StatelessWidget {
                   color: status == "active"
                       ? Colors.green.shade400
                       : Colors.yellow.shade300,
-                  border: Border.all(width: 1.25, color: Color(0xFF6a5bff))),
+                  border: Border.all(
+                      width: 1.25,
+                      color: type == "contact"
+                          ? const Color(0xFF6a5bff)
+                          : Colors.white)),
               child: status == "active"
                   ? const Icon(
                       size: 10,
