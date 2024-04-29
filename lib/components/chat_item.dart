@@ -16,33 +16,36 @@ class ChatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {},
-      leading: ContactAvatar(status: status, url: image, type: "Chat"),
-      contentPadding: const EdgeInsets.all(0),
-      title: Text(
-        name,
-        style: const TextStyle(fontSize: 16),
+    return Material(
+      child: ListTile(
+        onTap: () {
+          Navigator.pushNamed(context, '/chat', arguments: {'id': 123});
+        },
+        leading: ContactAvatar(status: status, url: image, type: "Chat"),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+        title: Text(
+          name,
+          style: const TextStyle(fontSize: 16),
+        ),
+        subtitle: Text(
+          "${message.substring(0, 53)}...",
+          style: const TextStyle(fontSize: 12, color: Colors.black54),
+          maxLines: 2,
+        ),
+        trailing: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("10:00am"),
+            Icon(
+              Icons.done_all_rounded,
+              size: 20,
+              color: Colors.black45,
+            ),
+          ],
+        ),
+        dense: true,
+        tileColor: Colors.white,
       ),
-      subtitle: Text(
-        "${message.substring(0, 53)}...",
-        style: const TextStyle(fontSize: 12, color: Colors.black54),
-        maxLines: 2,
-      ),
-      trailing: const Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text("10:00am"),
-          Icon(
-            Icons.done_all_rounded,
-            size: 20,
-            color: Colors.black45,
-          ),
-        ],
-      ),
-      dense: true,
-      enabled: true,
-      enableFeedback: true,
     );
   }
 }

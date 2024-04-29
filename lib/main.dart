@@ -1,6 +1,7 @@
-import 'package:chat_app/components/home_appbar.dart';
+import 'package:chat_app/screens/chat.dart';
 import 'package:chat_app/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -16,16 +17,34 @@ class MyApp extends StatelessWidget {
       title: 'Chat App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.transparent, foregroundColor: Colors.white),
         scaffoldBackgroundColor: const Color(0xFF6a5bff),
         fontFamily: GoogleFonts.inter().fontFamily,
-        useMaterial3: true,
+        // useMaterial3: true,
       ),
-      home: const Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(96),
-          child: HomeAppbar(),
+      routes: {
+        '/chat': (context) => const Chat(),
+      },
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Convo Cove",
+            style: GoogleFonts.ubuntu(fontWeight: FontWeight.bold),
+          ),
+          actions: [
+            SvgPicture.asset(
+              'assets/icons/menu.svg', // Path to your SVG file
+              width: 32,
+              height: 32,
+              color: Colors.white,
+            ),
+            const SizedBox(
+              width: 12,
+            )
+          ],
         ),
-        body: Home(),
+        body: const Home(),
       ),
     );
   }
