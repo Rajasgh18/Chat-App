@@ -19,7 +19,19 @@ class ChatItem extends StatelessWidget {
     return Material(
       child: ListTile(
         onTap: () {
-          Navigator.pushNamed(context, '/chat', arguments: {'id': 123});
+          int id = 0;
+          switch (name) {
+            case "Goku":
+              id = 1;
+              break;
+            case "Satoru Gojo":
+              id = 2;
+              break;
+            case "Yamanaka":
+              id = 3;
+              break;
+          }
+          Navigator.pushNamed(context, '/chat', arguments: {'id': id});
         },
         leading: ContactAvatar(status: status, url: image, type: "Chat"),
         contentPadding: const EdgeInsets.symmetric(horizontal: 8),
@@ -44,7 +56,7 @@ class ChatItem extends StatelessWidget {
           ],
         ),
         dense: true,
-        tileColor: Colors.white,
+        tileColor: const Color(0xFFefefef),
       ),
     );
   }
