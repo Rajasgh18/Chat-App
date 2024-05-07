@@ -24,17 +24,18 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.inter().fontFamily,
         useMaterial3: true,
       ),
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case '/chat':
-            return PageTransition(
-              child: const Chat(),
-              type: PageTransitionType.rightToLeftWithFade,
-            );
-          default:
-            return null;
-        }
-      },
+      routes: {"/chat": (context) => const Chat()},
+      // onGenerateRoute: (settings) {
+      //   switch (settings.name) {
+      //     case '/chat':
+      //       return PageTransition(
+      //         child: const Chat(),
+      //         type: PageTransitionType.rightToLeftWithFade,
+      //       );
+      //     default:
+      //       return null;
+      //   }
+      // },
       home: Scaffold(
         appBar: AppBar(
           title: Text(
